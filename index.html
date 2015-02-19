@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Solitaire</title>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/FortyThivesSolitaire.js"></script>
+	<script src="js/Game.js"></script>
+	<style>
+		.clean {
+			clear:both;
+		}
+		.card {
+			float:right;
+			border: 1px solid;
+			width: 35px;
+			height:70px;
+			background-color: #cdcdcd;
+			box-shadow: 1px 1px 1px #6C6C6C;
+			border-radius: 4px;
+		}
+		.bord {
+			border: 1px solid;
+			padding:10px;
+			border-radius: 3px;
+			background-image: url("img/background_board.png");
+			min-height: 500px;
+		}
+		.stockWasteFound {
+			border: 1px solid;
+			padding:10px;
+			border-radius: 3px;
+			background-image: url("img/background_board.jpg");
+			box-shadow: 0px 1px 6px #1C3D4F;
+		}
+		.stockWaste{
+			width:100px;
+			float: left;
+		}
+		.foundataions{
+			float:right;
+			position: relative;
+			width:500px;
+			height: auto;
+		} 
+		.foundationCards {
+			position: relative;
+			float: left;
+			width: 35px;
+			height: 70px;
+			padding: 10px;
+			margin-left: 45px;
+		}
+		.foundationCards .card {
+			float:none;
+			top:0;
+			/* margin-left: 40px;
+			float: left;
+			top:0; */
+			position: absolute;
+		}
+		.stock {
+			float: left;
+		}
+		.discard {
+			float:right;
+		}
+		.tableauCards > .card{
+			float: left;
+		}
+		.tableau{
+			padding: 20px;
+			margin-top: 50px;
+		}
+		.tableauSection{
+			width: 78%;
+			margin: 0 auto;
+			/*border: 1px solid black;*/
+			padding: 50px;
+			height: auto;
+			clear: both;
+		}
+		.tableauCards {
+		  	width: 37px;
+			float: left;
+			margin-left: 50px;
+			min-height: 70px;
+			border: 1px solid black;
+		}
+		.tableauCards > .card {
+			margin-top: -20px;
+			float: left;
+		}
+		.discard > .card {
+			position: absolute;
+		}
+		.stock .card {
+			cursor: pointer;
+			position: absolute;
+		}
+		.movableCard {
+			z-index: 199;
+			cursor: move;
+		}
+	</style>
+</head>
+<body>
+	Play FortyThives Game :
+	<div class="main">
+		<div class="bord">
+			<div class="stockWasteFound">
+				<div class="stockWaste">
+					<div class="stock">
+						<div class="card">
+							<div class="cardId" style="display:none">
+								
+							</div>
+							<div class="suit">
+								Get
+							</div>
+							<div class="rank">
+								New Card
+							</div>
+						</div>
+					</div>
+					<div class="discard">
+						
+					</div>
+				</div>
+				<div class="foundataions">
+					
+				</div>
+				<div class="clean"></div>
+			</div>
+			<div class="tableau">
+				<div class="tableauSection">
+					
+				</div>
+			</div>
+			<div class="clean"></div>
+		</div>
+		<div class="response">
+		</div>
+	</div>
+	<script>
+		newGame = new Game.FortyThieves();
+		newViewHelper = new Game.ViewHelper();
+			
+		$('.discard').html(newViewHelper.createDiscardPile(newGame.discardPiles));
+		$('.foundataions').html(newViewHelper.createFoundationPiles(newGame.foundationPiles));
+		$('.tableauSection').html(newViewHelper.createTableauPiles(newGame.tableauPiles));
+
+		newViewHelper.makeCardDraggable(newGame.discardPiles.currentPileCards);
+		
+		newViewHelper.makeTableauPileCardsDraggable(newGame);
+
+		newViewHelper.createFoundationDropPoints(newGame);
+		newViewHelper.createTableauDropPoints(newGame);
+
+		$('.stock').on('click', '.card', function() {
+			nextCard = newGame.getNextDiscardCard();
+			if(!nextCard) {
+				return alert('Sorry, No More Cards Left.!');
+			}
+			$('.discard').html(newViewHelper.createDiscardPile(newGame.discardPiles));
+			newViewHelper.makeCardDraggable(newGame.discardPiles.currentPileCards);
+		})
+	</script>
+</body>
+</html>
