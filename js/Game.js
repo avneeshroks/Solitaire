@@ -6,7 +6,6 @@
     ViewHelper.prototype.createNewCard = function(card, dataPile) {
       var imgPath, newCard;
       imgPath = this.getCardImagePath(card);
-      console.log(imgPath);
       newCard = '<div class="card" data-pile="' + dataPile + '" style="background-image: url(' + imgPath + ')" data-cardId="' + card.cardId + '"> <div class="cardId" style="display:none">' + card.cardId + '</div> <div class="suit" style="display:none">' + card.suit + '</div> <div class="rank" style="display:none">' + card.rank + '</div> </div>';
       return newCard;
     };

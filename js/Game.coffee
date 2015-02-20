@@ -1,7 +1,6 @@
 class Game.ViewHelper
 	createNewCard : (card, dataPile) ->
 		imgPath = @getCardImagePath(card)
-		console.log imgPath
 		newCard = '<div class="card" data-pile="'+dataPile+'" style="background-image: url('+imgPath+')" data-cardId="'+card.cardId+'">
 				<div class="cardId" style="display:none">
 					'+card.cardId+'
