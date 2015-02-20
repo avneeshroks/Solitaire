@@ -49,7 +49,7 @@ class Deck
    
    initDeck : () -> 
        allCards = []
-       suits = ['H', 'S', 'C', 'D']
+       suits = ['h', 's', 'c', 'd']
        cardIdCounter = 1
        for suitCounter in suits
            for rankCounter in [1..13]

@@ -93,7 +93,7 @@
     Deck.prototype.initDeck = function() {
       var allCards, cardIdCounter, rankCounter, suitCounter, suits, _i, _j, _len;
       allCards = [];
-      suits = ['H', 'S', 'C', 'D'];
+      suits = ['h', 's', 'c', 'd'];
       cardIdCounter = 1;
       for (_i = 0, _len = suits.length; _i < _len; _i++) {
         suitCounter = suits[_i];

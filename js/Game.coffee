@@ -1,16 +1,24 @@
 class Game.ViewHelper
-	createNewCard : (card, dataPile) -> 
-		newCard = '<div class="card" data-pile="'+dataPile+'" data-cardId="'+card.cardId+'">
+	createNewCard : (card, dataPile) ->
+		imgPath = @getCardImagePath(card)
+		console.log imgPath
+		newCard = '<div class="card" data-pile="'+dataPile+'" style="background-image: url('+imgPath+')" data-cardId="'+card.cardId+'">
 				<div class="cardId" style="display:none">
 					'+card.cardId+'
 				</div>
-				<div class="suit">
+				<div class="suit" style="display:none">
 					'+card.suit+'
 				</div>
-				<div class="rank">
+				<div class="rank" style="display:none">
 					'+card.rank+'
 				</div>
 				</div>';
+		return newCard
+
+	getCardImagePath : (card) ->
+		path = 'img\/cards\/Cards_'+card.suit+''+card.rank+'.png'.toString()
+		return path
+
 
 	createStockPile : (stockPile) ->
 		newStockPile = ''
