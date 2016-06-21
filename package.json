@@ -4,7 +4,8 @@
   "description": "This is a very simple \"Solitaire Game\" which i recently made using coffee script.",
   "main": "js/node/server.js",
   "scripts": {
-    "test": "testit"
+    "test": "testit",
+    "start": "node js/node/server.js"
   },
   "repository": {
     "type": "git",
