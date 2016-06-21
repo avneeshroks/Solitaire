@@ -1,0 +1,23 @@
+{
+  "name": "solitaire",
+  "version": "1.0.0",
+  "description": "This is a very simple \"Solitaire Game\" which i recently made using coffee script.",
+  "main": "index.html",
+  "scripts": {
+    "test": "testit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avneeshroks/Solitaire.git"
+  },
+  "keywords": [
+    "solitaire",
+    "avn"
+  ],
+  "author": "avneesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avneeshroks/Solitaire/issues"
+  },
+  "homepage": "https://github.com/avneeshroks/Solitaire#readme"
+}
