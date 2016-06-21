@@ -2,10 +2,10 @@
   "name": "solitaire",
   "version": "1.0.0",
   "description": "This is a very simple \"Solitaire Game\" which i recently made using coffee script.",
-  "main": "js/node/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "testit",
-    "start": "node js/node/server.js"
+    "start": "node server.js"
   },
   "engines":{
     "node": ">=4"
